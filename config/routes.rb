@@ -56,5 +56,10 @@ Rails.application.routes.draw do
   #   end
 #
   root :to => "pages#index"
-  resources :links
+  
+  resources :links do
+    member do
+      get 'edit_link'
+    end
+  end
 end

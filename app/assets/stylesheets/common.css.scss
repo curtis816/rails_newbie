@@ -1,7 +1,7 @@
+@import "preview.scss";
 @import "bootstrap-setting";
-@import "twitter/bootstrap";
+
 @import "bootstrap-override";
-@import "twitter/bootstrap-responsive";
 @import "susy";
 @import "compass/css3";
 
@@ -16,18 +16,71 @@ $grid-padding   : 10px;
   /*以上是用來規劃基本格線設定 */
 
 
-$phone: 320px 6 480px;
-$pad: 12 1024px;
-$desktop: 1025px 18;
 
 /* ----- end SUSY setting ----- */
 
+
+/* ----- color setting ----- */
+$gray-blue: #6D8191;
+$deep-blue: #2C343B;
+$sign-red: #C44741;
+$light-brown: #E5E1D1;
+
+    /* ----- 灰階設定 ----- */
+    $black: #000000;
+    $gray-9: #333333;
+    $gray-8: #4D4D4D;
+    $gray-7: #666666;
+    $gray-6: #808080;
+    $gray-5: #999999;
+    $gray-4: #B3B3B3;
+    $gray-3: #CCCCCC;
+    $gray-2: #E6E6E6;
+    $gray-1: #F2F2F2;
+    $white: #ffffff;
+
+    /* ----- 首頁page-tag 色票 ----- */
+    $tag-h-1: #2C343B;
+    $tag-h-2: #808589;
+    $tag-h-3: #565D62;
+    $tag-h-4: #7D8C99;
+    $tag-h-5: #ED4723;
+
+    $tag-f-1: #435950;
+    $tag-f-2: #808985;
+    $tag-f-3: #56625D;
+    $tag-f-4: #7D998E;
+    $tag-f-5: #BC4272;
+
+    $tag-b-1: #634A4B;
+    $tag-b-2: #898080;
+    $tag-b-3: #625657;
+    $tag-b-4: #997D7E;
+    $tag-b-5: #5C9534;
+
+    $tag-1: #E5E1D1;
+    $tag-2: #FEFAF0;
+    $tag-3: #EFEDE3;
+    $tag-4: #FEFAF0;
+    $tag-5: #4060CB;
+
+    $get-start: #6D8191;
+    $btn-get-start: #F47156;
+
+    $blue-hover: #3300CC;
+    $orange-hover: #CC0099;
+    $green-hover: #006600;
+
+    $recommend: #A7C5DE;
+    $btn-recommend: #C43B1E;
+
+
+
+/* ----- end color setting ----- */
+
+
 /* Layout */
 
-.susy_container {
-  @include container($total-columns, $desktop, $pad, $phone);
-  //@include susy-grid-background;  //if need watch grid
-}
 
 // 修改 Bootstap內建樣式，解決格式跑掉的問題 
 @media (max-width: 320px) {
@@ -114,3 +167,227 @@ footer{
     
 
 /* End Layout */
+
+
+/* For edit landing page */
+
+
+#home-logo {
+    margin-bottom: 30px;
+}
+
+#landing-introdution {
+
+    margin-bottom: 50px;
+
+    .heading1 {
+
+        background-color: $light-brown;
+        padding:50px 0px 50px 0px; 
+        margin-bottom: 30px;
+    }
+
+    .heading2 {
+        @extend .heading1;
+        
+    }
+
+    .heading3 {
+        @extend .heading1;
+    }
+
+    .hero-unit {
+
+        background-color: $gray-blue;
+        clear:both;
+
+        h2{
+            color: $white;
+        }
+
+        p{
+            color: $gray-3;
+
+        }
+    }
+}
+
+/* End edit landing page */
+
+/* for index page */
+
+
+#hot-tags {
+    clear: both;
+    color: $gray-1;
+    margin-bottom: 30px;
+    text-decoration: none;
+
+    a {
+        color: $gray-2;
+        text-decoration: none;
+    }   
+
+
+    .tag-page {
+        background-color: $tag-h-1;
+    }
+
+
+    .tag-intro {
+        background-color: $tag-h-2;
+        color: $black;
+    }
+
+    .tag-img {
+        img {
+            margin:0 auto;
+            display: block;
+        }
+    }
+
+    .tag-content {
+            h4  {text-align: center; color:$gray-4;}
+    }
+
+
+    .tag-button {
+        background-color: $tag-h-5;
+        text-align: center;
+        text-decoration: none;
+
+    }
+
+    .tag-button:hover {
+        background-color: $orange-hover;
+    }
+}
+
+#get-start {
+    background-color: $get-start;
+    margin-bottom: 30px;
+        h2 {
+            margin-bottom: 10px;
+                font-size: 29px;
+        }
+
+        h3 {
+            margin: 0px 0px 5px 0px;
+        }
+
+        .tag-title {
+            background-color: $recommend;
+        }
+
+        .tag-button {
+            background-color: $btn-get-start;
+            color: $gray-9;
+            text-align: center;
+
+        .tag-button:hover {
+            background-color: $orange-hover;
+        }
+    }
+
+#new-post {
+    @extend #get-start;
+    background-color: $gray-4;
+
+    a {
+        text-decoration: none;
+    }   
+
+    .tag-button {
+        background-color: blue;
+        color: $gray-1;
+        font-size: 28px;
+    }
+
+    .tag-button:hover {
+        background-color: $blue-hover;
+    }
+}
+
+#recommend {
+    @extend #get-start;
+}
+
+#front-tags {
+    @extend #hot-tags;
+
+    .tag-page {
+        background-color: $tag-f-1;
+    }
+
+    .tag-intro {
+        background-color: $tag-f-2;
+    }
+
+    .tag-content {
+        h4 {margin-top: 10px;
+            color:$gray-2;
+        }
+
+        .tag-button {
+            background-color: $tag-f-5;
+        }
+    }
+}
+
+#back-tags {
+    @extend #front-tags;
+    
+    .tag-page {
+        background-color: $tag-b-1;
+    }
+
+    .tag-intro {
+        background-color: $tag-b-2;
+    }
+
+    .tag-button {
+        background-color: $tag-b-5;
+    }
+
+    .tag-button:hover {
+        background-color: $green-hover;
+    }
+}
+
+.new-tags {
+    @extend #hot-tags;
+    color: $gray-9;
+
+    .tag-page {
+        background-color: $tag-1;
+    }
+
+    .tag-intro {
+        background-color: $tag-2;
+    }
+
+    .tag-content { 
+        .tag-title {
+            color: $gray-8;
+        }
+    }
+
+    .tag-button {
+        background-color: $tag-5;
+        color: $white;
+    }
+}
+
+.big-head {
+    line-height: 80px;
+    font-size: 72px;
+    padding-top: 100px;
+    margin-bottom: 100px;
+}
+/* end index page */
+
+/* for pages/index */
+#nav-page-tag {
+    margin-bottom: 40px;
+}
+}

@@ -6,19 +6,23 @@ class LinksController < ApplicationController
   end
 
   def new
-    @links = Link.new
+    @link = Link.new
   end
 
   def show
-    @links = Link.find(params[:id])
+    @link = Link.find(params[:id])
   end
 
   def edit
-    @links = current_user.links.find(params[:id])
+    @link = current_user.links.find(params[:id])
+  end
+
+  def edit_link
+    @link = current_user.links.find(params[:id])
   end
 
   def create
-    @links = current_user.links.build(link_params)
+    @link = current_user.links.build(link_params)
 
     if @link.save
       redirect_to links_path, :notice => "新增成功"
@@ -28,7 +32,7 @@ class LinksController < ApplicationController
   end
 
   def update
-    @links = current_user.links.find(params[:id])
+    @link = current_user.links.find(params[:id])
 
     if @link.update(link_params)
       redirect_to links_path(@link)
@@ -43,6 +47,8 @@ class LinksController < ApplicationController
       redirect_to links_url, notice: 'Link 刪除成功'
     end
   end
+
+
 
   private
 

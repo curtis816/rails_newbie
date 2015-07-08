@@ -1,1 +1,48 @@
-<h1>hello world!</h1>
+<div id="pages-index">
+  <div class="hero-unit">
+    <h1 class="text-center">Ruby on Rails<br>Exchange Center</h1>
+    <p class="text-center"><span class="word-block">中文界 Ruby on Rails</span> <span class="word-block">資訊交流中心 </span></p>
+  </div>
+</div>
+
+<div id="pages">
+<% @links.each do |link| %>
+  <%= div_for link do %>
+  <div class="span6 mg-auto page_index_titles">
+    <h4 class="float-clear">  ：&nbsp;<%= link.intro %></h4>
+    <div class="span6">
+      <div class="thumb">
+        <div class="items">
+          <% if link.thumbnail_url.nil? %>
+            <ul class="images"><li><%= image_tag("no_img.jpg") %></li></ul>
+          <% else %>
+            <ul class="images"><li><img src="<%= link.thumbnail_url %>"></li></ul>
+          <% end %>
+        </div>
+      </div>
+      <div class="attributes">
+        <%= link_to(link.title, link.content, :class => "index-title") %>
+        <% if link.description.nil? %>
+          <p class="index-p muted">遮了國防布，完全沒有內容 XD
+          <br>該網站無法自動抓取連結資訊
+          <br>如果您是作者，請點選下面按鈕幫忙調整 
+          <%= link_to("Here", edit_link_link_path(link) , :class => "btn btn-danger btn-mini" )%></p>
+        <% else %>
+          <p class="index-p muted"><%= link.description %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="float-clear span6 mg-auto button_group">
+    <div class="button_group pull-right">
+      <% if current_user && link.editable_by?(current_user) %>
+        <%= ibutton("Edit", edit_link_path(link), :class => "btn btn-info", :iclass => "icon-pencil") %>
+        <%= ibutton("Delete", link_path(link), :class => "btn btn-danger",:iclass => "icon-remove", :method => :delete, data: { confirm: "Are you sure?" } ) %>
+      <% end %>
+      <%= ibutton("Read more", link_path(link), :class => "btn btn-success", :iclass => "icon-hand-up") %>
+    </div>
+  </div>
+  <div class="span6 offset3"><hr></div>
+  <% end %>
+<% end %>
+</div>

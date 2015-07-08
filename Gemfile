@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -65,11 +65,14 @@ group  :production  do
 end
 
 gem "susy"
+gem "simple_form", "~> 3.0.0.rc" 
+gem "binding_of_caller"
 gem 'compass', '>= 0.12.2'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem "bootstrap_helper", ">= 4.2.2.1"
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem "bootstrap-sass"
+gem "embedly", "~> 1.8.0"
 
 gem "settingslogic" #密鑰隱藏功能
 gem "omniauth"
